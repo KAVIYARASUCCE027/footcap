@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: footcap-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: footcap
+  template:
+    metadata:
+      labels:
+        app: footcap
+    spec:
+      containers:
+        - name: footcap
+          image: kavi466/footcap:latest  # ✅ using your Docker Hub image
+          ports:
+            - containerPort: 80
